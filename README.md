@@ -33,7 +33,7 @@ pip install websockets --break-system-packages
    - Download "Were you rushing or dragging?" from Whiplash
    - Trim to 2 seconds
    - Amplify volume: `ffmpeg -i fletcher.wav -filter:a "volume=10.0" fletcher_loud.wav`
-   - Place at `/home/YOUR_USER/fletcher_loud.wav`
+   - Place at `~/fletcher_loud.wav` (your home directory)
 
 5. Update the script path in `fletcher.py`
 
