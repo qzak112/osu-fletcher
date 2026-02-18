@@ -2,8 +2,9 @@ import asyncio
 import websockets
 import json
 import subprocess
+import os
 
-AUDIO_PATH = "/home/arch/fletcher_loud.wav"
+AUDIO_PATH = os.path.expanduser("~/fletcher_loud.wav")
 last_combo = 0
 
 async def watch_osu():
@@ -17,9 +18,7 @@ async def watch_osu():
             
             try:
                 current_combo = data["play"]["combo"]["current"]
-                max_combo = data["play"]["combo"]["max"]
                 
-                # Combo break: was above 0, now reset, and max combo was higher
                 if last_combo > 10 and current_combo < last_combo and current_combo == 0:
                     print("COMBO BREAK - Fletcher activated")
                     subprocess.Popen(["paplay", AUDIO_PATH])
